@@ -1,0 +1,55 @@
+<div class="container">
+    <div class="card">
+        <div class="card-body">
+            <div class="card">
+                <div class="card-header">
+                    <h3>Productos</h3>
+                </div>
+                <div class="card-body">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>ID PRODUCTO</th>
+                                <th>DESCRIPCIÓN</th>
+                                <th>PARA VENTA</th>
+                                <th>ES PRODUCIDO</th>
+                                <th>ID MEDIDA</th>
+                                <th><button (click)="Nuevo()" class="btn btn-primary float-right" style="margin-left:10px;">Nuevo</button></th>
+                            </tr>
+                        </thead>
+
+                    <!--<label for="">Elija un producto:</label>
+                    <select name="producto" [(ngModel)]="productos">
+                        <option *ngFor="let producto of productos" [value]="producto.id_producto">{{producto.descripcion}}</option>
+                    </select>--><!--[ngValue]-->
+
+                        <tbody>
+                            <tr *ngFor="let producto of productos" class="text-center">
+                                <td>{{producto.idproducto}}</td>
+                                <td>{{producto.descripcion}}</td>
+                                <td><div *ngIf="producto.paraventa == 1; else elseBlock">Si</div>
+                                    <ng-template #elseBlock>No</ng-template></td>
+                                <td><div *ngIf="producto.esproducido == 1; else elseBlock">Si</div>
+                                    <ng-template #elseBlock>No</ng-template></td>
+                                <td>
+                                    <div *ngFor="let medida of medidas">
+                                        <div *ngIf="producto.idmedida == medida.idmedida">
+                                        {{ medida.descripcion }}
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <button (click)="Editar(producto)" class="btn btn-warning">Editar</button>
+                                    <button (click)="Delete(producto)" class="btn btn-danger">Borrar</button>
+                                    <span *ngIf="producto.esproducido == 0">
+                                        <button (click)="Receta(producto)" class="btn btn-success">Receta</button>
+                                    </span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

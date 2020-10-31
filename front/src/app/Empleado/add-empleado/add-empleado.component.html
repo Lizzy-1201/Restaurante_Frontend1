@@ -1,0 +1,38 @@
+<div class="container col-md-6">
+    <div class="card">
+        <div class="card-body">
+            <div class="card">
+                <div class="card-header">
+                    <h3>Agregar Empleado</h3>
+                </div>
+                <div class="card-body">
+                    <form action="">
+                        <div class="form-group">
+                            <label for="">TIENDA:</label><br>
+                            <select name="idtienda" [(ngModel)]="modelEmpleado.idtienda">
+                                <option *ngFor="let tienda of tiendas" [value]="tienda.idtienda">{{tienda.direccion}}</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="">Primer Nombre</label>
+                            <input [(ngModel)]="modelEmpleado.pnombre" name= "pnombre" type="text" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="">Segundo Nombre</label>
+                            <input [(ngModel)]="modelEmpleado.snombre" name= "snombre" type="text" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="">Primer Apellido</label>
+                            <input [(ngModel)]="modelEmpleado.papelli" name= "papelli" type="text" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="">Segundo Apellido</label>
+                            <input [(ngModel)]="modelEmpleado.sapelli" name= "sapelli" type="text" class="form-control">
+                        </div>
+                        <button (click)="Guardar(modelEmpleado)" class="btn btn-success">Guardar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

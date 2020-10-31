@@ -1,0 +1,56 @@
+<div class="container">
+    <div class="card">
+        <div class="card-body">
+            <div class="card">
+                <div class="card-header">
+                    <h3>Productos de Receta</h3>
+                </div>
+                <div class="card-body">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>ID RECETA DETALLE</th>
+                                <th>ID PRODUCTO SALIDA</th>
+                                <th>ID PRODUCTO ENTRADA</th>
+                                <th>CANTIDAD</th>
+                                <th>ID MEDIDA</th>
+                                <th><button (click)="Nuevo()" class="btn btn-primary float-right" style="margin-left:10px;">Nuevo</button></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let receta_detalle of receta_detalles" class="text-center">
+                                <td>{{receta_detalle.idrecetadetalle}}</td>
+                                <td>
+                                    <div *ngFor="let producto of productos">
+                                        <div *ngIf="receta_detalle.idproductosalida == producto.idproducto">
+                                        {{producto.descripcion}}
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div *ngFor="let producto of productos">
+                                        <div *ngIf="receta_detalle.idproductoentrada == producto.idproducto">
+                                        {{producto.descripcion}}
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>{{receta_detalle.cantidad}}</td>
+                                <td>
+                                    <div *ngFor="let medida of medidas">
+                                        <div *ngIf="receta_detalle.idmedida == medida.idmedida">
+                                        {{medida.descripcion}}
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <button (click)="Editar(receta_detalle)" class="btn btn-warning">Editar</button>
+                                    <button (click)="Delete(receta_detalle)" class="btn btn-danger">Borrar</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

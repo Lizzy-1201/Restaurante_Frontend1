@@ -1,0 +1,57 @@
+<div class="container">
+    <div class="card">
+        <div class="card-body">
+            <div class="card">
+                <div class="card-header">
+                    <h3>Ventas</h3>
+                </div>
+                <div class="card-body">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>ID TRANSACCION DET</th>
+                                <th>ID EMPLEADO</th>
+                                <th>ID PRODUCTO</th>
+                                <th>UNIDADES</th>
+                                <th>COSTO TOTAL</th>
+                                <th>FECHA</th>
+                                <th>
+                                    <form action="">
+                                        <div class="form-group">
+                                            <label for="">Filtrar Ventas</label>
+                                            <input name="fecha" type="Date" class="form-control" [(ngModel)] = "modelTransaccionInventarioDet.fecha">
+                                        </div>
+                                        <button (click)="Fecha(modelTransaccionInventarioDet)" class="btn btn-success">Buscar</button>
+                                    </form>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let transaccion_inventario_det of transaccion_inventario_dets" class="text-center">
+                                <td>{{ transaccion_inventario_det.idtransacciondet }}</td>
+                                <td>
+                                    <div *ngFor="let empleado of empleados">
+                                        <div *ngIf="transaccion_inventario_det.idempleado == empleado.idempleado">
+                                        {{ empleado.pnombre }}
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div *ngFor="let producto of productos">
+                                        <div *ngIf="transaccion_inventario_det.idproducto == producto.idproducto">
+                                        {{ producto.descripcion }}
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>{{ transaccion_inventario_det.unidades }}</td>
+                                <td>{{ transaccion_inventario_det.costototal }}</td>
+                                <td>{{ transaccion_inventario_det.fecha }}</td>
+                                
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

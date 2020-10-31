@@ -1,0 +1,41 @@
+<div class="container col-md-6">
+    <div class="card">
+        <div class="card-body">
+            <div class="card">
+                <div class="card-header">
+                    <h3>Agregar Producto</h3>
+                </div>
+                <div class="card-body">
+                    <form action="">
+                        <div class="form-group">
+                            <label for="">DESCRIPCION</label>
+                            <input [(ngModel)]="modelProducto.descripcion" name= "descripcion" type="text" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="">PARA VENTA</label><br>
+                            <select [(ngModel)]="modelProducto.paraventa" name="paraventa">
+                                <option value="1">Si</option>
+                                <option value="0">No</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="">ES PRODUCIDO</label><br>
+                            <select [(ngModel)]="modelProducto.esproducido" name="esproducido">
+                                <option value="1">Si</option>
+                                <option value="0">No</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="">ID MEDIDA:</label><br>
+                            <select name="idmedida" [(ngModel)]="modelProducto.idmedida">
+                                <option *ngFor="let medida of medidas" [value]="medida.idmedida">{{medida.descripcion}}</option>
+                            </select>
+                        </div>
+
+                        <button (click)="Guardar(modelProducto)" class="btn btn-success">Guardar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

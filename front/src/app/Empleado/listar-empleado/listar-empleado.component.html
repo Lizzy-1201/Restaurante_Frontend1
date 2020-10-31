@@ -1,0 +1,47 @@
+<div class="container">
+    <div class="card">
+        <div class="card-body">
+            <div class="card">
+                <div class="card-header">
+                    <h3>Empleados</h3>
+                </div>
+                <div class="card-body">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>ID EMPLEADO</th>
+                                <th>ID TIENDA</th>
+                                <th>PRIMER NOMBRE</th>
+                                <th>SEGUNDO NOMBRE</th>
+                                <th>PRIMER APELLIDO</th>
+                                <th>SEGUNDO APELLIDO</th>
+                                <th><button (click)="Nuevo()" class="btn btn-primary float-right" style="margin-left:10px;">Nuevo</button></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let empleado of empleados" class="text-center">
+                                <td>{{empleado.idempleado}}</td>
+                                <td>
+                                    <div *ngFor="let tienda of tiendas">
+                                        <div *ngIf="empleado.idtienda == tienda.idtienda">
+                                        {{ tienda.direccion }}
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>{{empleado.pnombre}}</td>
+                                <td>{{empleado.snombre}}</td>
+                                <td>{{empleado.papelli}}</td>
+                                <td>{{empleado.sapelli}}</td>
+                                <td>
+                                    <button (click)="Editar(empleado)" class="btn btn-warning">Editar</button>
+                                    <button (click)="Delete(empleado)" class="btn btn-danger">Borrar</button>
+                                    <button (click)="Venta(empleado)" class="btn btn-success">Venta</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

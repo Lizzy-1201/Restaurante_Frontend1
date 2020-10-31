@@ -1,0 +1,52 @@
+<div class="container">
+    <div class="card">
+        <div class="card-body">
+            <div class="card">
+                <div class="card-header">
+                    <h3>Venta de Empleado</h3>
+                </div>
+                <div class="card-body">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>ID TRANSACCION DET</th>
+                                <th>ID EMPLEADO</th>
+                                <th>ID PRODUCTO</th>
+                                <th>UNIDADES</th>
+                                <th>COSTO TOTAL</th>
+                                <th>FECHA</th>
+                                <th><button (click)="Nuevo()" class="btn btn-primary float-right" style="margin-left:10px;">Nuevo</button></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let transaccion_inventario_det of transaccion_inventario_dets" class="text-center">
+                                <td>{{transaccion_inventario_det.idtransacciondet}}</td>
+                                <td>
+                                    <div *ngFor="let empleado of empleados">
+                                        <div *ngIf="transaccion_inventario_det.idempleado == empleado.idempleado">
+                                        {{empleado.pnombre}}
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div *ngFor="let producto of productos">
+                                        <div *ngIf="transaccion_inventario_det.idproducto == producto.idproducto">
+                                        {{producto.descripcion}}
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>{{transaccion_inventario_det.unidades}}</td>
+                                <td>{{transaccion_inventario_det.costototal}}</td>
+                                <td>{{transaccion_inventario_det.fecha}}</td>
+                                <td>
+                                    <!--<button (click)="Editar(transaccion_inventario_det)" class="btn btn-warning">Editar</button>-->
+                                    <button (click)="Delete(transaccion_inventario_det)" class="btn btn-danger">Borrar</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
